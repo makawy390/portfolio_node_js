@@ -13,13 +13,13 @@ app.use(cors());
 const connection_DB = require('./db/mongo_db');
 // 7) Add Router Books
 const booksRouter = require('./routes/books.route');
-app.use('/api/books' , booksRouter);
+app.use('api/books' , booksRouter);
 // 8) upload routes
 const path = require('path')
 app.use('/uploads/' , express.static(path.join((__dirname,'uploads'))));
 // 9) Add Router User 
 const userRouter = require('./routes/user.route');
-app.use('/api/user' , userRouter);
+app.use('api/user' , userRouter);
 // 10) add Error Api
 app.all('*', (req, res, next) => {
     res.status(404).json({status : "Error" });
